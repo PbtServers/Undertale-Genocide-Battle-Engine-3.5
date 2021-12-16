@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SpearRise.ogg-293697289baeea94c9714a9f87954f52.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sounds/Bullets/SpearRise.ogg"
+dest_files=[ "res://.import/SpearRise.ogg-293697289baeea94c9714a9f87954f52.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

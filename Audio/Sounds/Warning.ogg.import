@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Warning.ogg-bf819ef0ce611ed46cc13d727f119841.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sounds/Warning.ogg"
+dest_files=[ "res://.import/Warning.ogg-bf819ef0ce611ed46cc13d727f119841.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GasterBlast.ogg-45ee086cd58dc15e0003922b134832c4.oggstr"
+
+[deps]
+
+source_file="res://Audio/Sounds/Bullets/GasterBlast.ogg"
+dest_files=[ "res://.import/GasterBlast.ogg-45ee086cd58dc15e0003922b134832c4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
