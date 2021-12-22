@@ -11,26 +11,25 @@ var damageTaken: = 0.0
 var timer: = 0.0
 
 var negative: = false
-var drawBar: = true
+var drawBar: = false
 
 var vSpeed: = -4.0
 var gravity: = 0.5
 
 
 func _ready() -> void:
-	if damageTaken == 0 or !drawBar:
-		$Health/Outline.hide()
-		$Health/Background.hide()
-		$Health.hide()
-	
 	if damageTaken == 0:
 		$Text.bbcode_text = "[center]MISS"
 		$Text.modulate = Color(0.752941, 0.752941, 0.752941)
-	else: $Text.bbcode_text = "[center]" + str(damageTaken if damageTaken > 0 else 0)
+	else:
+		drawBar = true
+		$Text.bbcode_text = "[center]" + str(damageTaken if damageTaken > 0 else 0)
+		$Text.modulate = Color(1, 0, 0)
 
 
 func _process(delta: float) -> void:
-	timer += delta
+	$Health.visible = drawBar
+	
 	if timer >= 2.0 / 30.0:
 		timer = 0
 		if displayHealth > (trueHealth - damageTaken): displayHealth -= (damageTaken / 15.0)
@@ -49,8 +48,8 @@ func _process(delta: float) -> void:
 	$Health/Background.margin_right = round(maxHealth * stretchFactor)
 	$Health.margin_right = round(displayHealth * stretchFactor)
 	
-	$Text.margin_left = -30
-	$Text.margin_right = $Health/Background.margin_right + 30
+	$Text.margin_left = -1000
+	$Text.margin_right = $Health/Background.margin_right + 1000
 	
 	$Text.rect_position.y = $Text.rect_position.y + vSpeed * (delta * 30)
 	vSpeed = vSpeed + gravity * (delta * 30)

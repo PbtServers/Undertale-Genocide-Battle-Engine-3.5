@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var Name = ["Sans"]
-var actOptions = ["Check", "Inspect"]
+var actOptions = [["Check", "Inspect"]]
 var actChoiceText: Array = [
 	[ # Enemy 1
 		# Choice 1
@@ -26,11 +26,12 @@ var dodgeSpeed: = 0.0
 var dodgeTimer: = 0.0
 var dodgePosition: = 0.0
 
-onready var enemyStrikePos: Array = [$Sans.position - Vector2(5, 5)]
+onready var enemyStrikePos: Array
 onready var damageWriter: = preload("res://Battle/Enemy/DamageWriter/DamageWriter.tscn")
 
 
 func _process(delta: float) -> void:
+	enemyStrikePos = [$Sans.position - Vector2(5, 5)]
 	$Sans.position.y = $"../BorderLayer/Border".ideal[2] - 130
 	
 	if dodge:
@@ -69,7 +70,7 @@ func playerAttack(Who, TakeDamage, DamageTime):
 			dodgePosition = $Sans.position.x
 			
 			yield(get_tree().create_timer(DamageTime / 30.0), "timeout")
-			createDamageWriter(Vector2(270, 75), 114, 10, 10, 0)
+			createDamageWriter(Vector2(270, 75), 114, 1, 1, 0)
 
 
 func createDamageWriter(Position, Width, Health, MaxHealth, DamageTaken, DestroyTime: = -1.0):

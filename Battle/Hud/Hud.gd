@@ -213,7 +213,7 @@ func menuActEnemy():
 	
 	menuClear()
 	
-	for n in menuSize: createMenuOption(Vector2(64 + (n % 2) * 256, 272 + floor(n / 2) * 32), n, "* " + enemy.actOptions[n], "menuActText", "menuAct")
+	for n in menuSize: createMenuOption(Vector2(64 + (n % 2) * 256, 272 + floor(n / 2) * 32), n, "* " + enemy.actOptions[actSelection][n], "menuActText", "menuAct")
 	menuCoord[1] = 0
 
 
@@ -226,13 +226,12 @@ func menuActText():
 	for n in len(actText):
 		match actSelection:
 			0: match menuCoord[1]:
-				1: match n:
+				0: match n:
 					0:
-						if len(enemy.actChoiceText[actSelection][menuCoord[1]]) < 2:
+						if len(enemy.actChoiceText[actSelection][menuCoord[1]]) == 1:
 							enemy.actChoiceText[actSelection][menuCoord[1]].append(["* Can't keep dodging forever.\n  Keep attacking.", 1.0, {}, {}])
 		
 		var text = createRPGText("ActText", Vector2(48, 272), Vector2(544, 196), actText[n][0], actText[n][1], actText[n][2], actText[n][3])
-# warning-ignore:redundant_await
 		yield(text, "con")
 	
 	emit_signal("runAttack")
